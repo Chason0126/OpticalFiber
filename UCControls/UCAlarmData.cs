@@ -52,7 +52,7 @@ namespace OpticalFiber
                     MessageBox.Show("开始时间小于结束时间！");
                     return;
                 }
-                list_Temp = sql_Select.Select_Alarm(cbxAlarmType.SelectedIndex, dtpStart.Value.Date.ToShortDateString(), dtpStart.Value.AddDays(1).Date.ToShortDateString());
+                list_Temp = sql_Select.Select_Alarm(cbxAlarmType.SelectedIndex, dtpStart.Value.Date.ToShortDateString(), dtpEnd.Value.AddDays(1).Date.ToShortDateString());
 
             }
             catch (Exception ex)

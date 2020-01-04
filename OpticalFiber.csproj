@@ -64,6 +64,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Authorize">
+      <HintPath>..\Authorize\obj\Debug\netstandard2.0\Authorize.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -117,6 +120,12 @@
     </Compile>
     <Compile Include="FrmInitDB.Designer.cs">
       <DependentUpon>FrmInitDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\FrmAuthorize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\FrmAuthorize.Designer.cs">
+      <DependentUpon>FrmAuthorize.cs</DependentUpon>
     </Compile>
     <Compile Include="Froms\FrmCheckPwd.cs">
       <SubType>Form</SubType>
@@ -193,12 +202,6 @@
     <Compile Include="UCControls\UCChart.Designer.cs">
       <DependentUpon>UCChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCDeviceManagement.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCDeviceManagement.Designer.cs">
-      <DependentUpon>UCDeviceManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="UCControls\UCLines.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,6 +241,9 @@
     <EmbeddedResource Include="FrmInitDB.resx">
       <DependentUpon>FrmInitDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Froms\FrmAuthorize.resx">
+      <DependentUpon>FrmAuthorize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Froms\FrmCheckPwd.resx">
       <DependentUpon>FrmCheckPwd.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,9 +272,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCControls\UCChart.resx">
       <DependentUpon>UCChart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCDeviceManagement.resx">
-      <DependentUpon>UCDeviceManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCControls\UCLines.resx">
       <DependentUpon>UCLines.cs</DependentUpon>

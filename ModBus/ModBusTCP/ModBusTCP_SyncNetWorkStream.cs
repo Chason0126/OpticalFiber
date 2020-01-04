@@ -89,8 +89,8 @@ namespace OpticalFiber
                     if (socket.Connected)
                     {
                         networkStream = new NetworkStream(socket);
-                        networkStream.ReadTimeout = 200;
-                        networkStream.WriteTimeout = 200;
+                        networkStream.ReadTimeout = 5000;
+                        networkStream.WriteTimeout = 5000;
                         thread = new Thread(WorkThread);
                         thread.Start();
                     }
@@ -110,8 +110,8 @@ namespace OpticalFiber
                         if (socket.Connected)
                         {
                             networkStream = new NetworkStream(socket);
-                            networkStream.ReadTimeout = 200;
-                            networkStream.WriteTimeout = 200;
+                            networkStream.ReadTimeout = 5000;
+                            networkStream.WriteTimeout = 5000;
                             thread = new Thread(WorkThread);
                             thread.Start();
                         }

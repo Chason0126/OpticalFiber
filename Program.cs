@@ -37,6 +37,7 @@ namespace OpticalFiber
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+
                 FrmInitDB frmInitDB = new FrmInitDB();
                 if (frmInitDB.ShowDialog() == DialogResult.OK)
                 {

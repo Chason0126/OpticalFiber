@@ -293,10 +293,10 @@ namespace OpticalFiber
                         sql = "select   *  from alarm where datetime  between '" + start + "' and '" + end + "' and type like '%报警' order by datetime desc ";
                         break;
                     case 2:
-                        sql = "select   *  from alarm where datetime between '" + start + "' and '" + end + "' and type like '%断纤' order by datetime desc ";
+                        sql = "select   *  from alarm where datetime between '" + start + "' and '" + end + "' and type like '断纤%' order by datetime desc ";
                         break;
                     case 3:
-                        sql = "select   *  from alarm where datetime between '" + start + "' and '" + end + "' and type like '%通讯' order by datetime desc ";
+                        sql = "select   *  from alarm where datetime between '" + start + "' and '" + end + "' and type like '通讯%' order by datetime desc ";
                         break;
                 }
                 
