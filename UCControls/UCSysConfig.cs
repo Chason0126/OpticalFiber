@@ -40,9 +40,10 @@ namespace OpticalFiber
                 struct_DeviceEnables = new List<struct_DeviceEnable>();
                 //struct_DeviceEnables = ConfigClass.GetStruct_DeviceEnables();
                 struct_DeviceEnables = sql_Select.Select_DeviceEnable();
+                int i = 1;
                 foreach (struct_DeviceEnable struct_DeviceEnable in struct_DeviceEnables)
                 {
-                    dgvDevice.Rows.Add(struct_DeviceEnable.name, struct_DeviceEnable.ipEndPoint.Address, struct_DeviceEnable.ipEndPoint.Port, struct_DeviceEnable.enable);
+                    dgvDevice.Rows.Add(i++, struct_DeviceEnable.name, struct_DeviceEnable.ipEndPoint.Address, struct_DeviceEnable.ipEndPoint.Port, struct_DeviceEnable.enable);
                 }
             }
             catch (Exception ex)
@@ -108,42 +109,41 @@ namespace OpticalFiber
             {
                 if (e.RowIndex >= 0)
                 {
-                    if (e.ColumnIndex == 4)
+                    if (e.ColumnIndex == 5)
                     {
-                        if(Convert.ToBoolean(dgvDevice.CurrentRow.Cells[3].Value.ToString()))
+                       
+                        if (MessageBox.Show("确定要修改设备信息吗？","操作提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Information) == DialogResult.OK)
                         {
-                            if (MessageBox.Show("确定要启用设备吗？","操作提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Information) == DialogResult.OK)
-                            {
-                                
-                                struct_DeviceEnable.name = dgvDevice.CurrentRow.Cells[0].Value.ToString();
-                                IPAddress iPAddress = IPAddress.Parse(dgvDevice.CurrentRow.Cells[1].Value.ToString());
-                                int port = Convert.ToInt32(dgvDevice.CurrentRow.Cells[2].Value);
-                                struct_DeviceEnable.ipEndPoint = new IPEndPoint(iPAddress, port);
-                                struct_DeviceEnable.enable = Convert.ToBoolean(dgvDevice.CurrentRow.Cells[3].Value.ToString());
-                                //ConfigClass.SetStruct_DeviceEnables(e.RowIndex + 1, struct_DeviceEnable);
-                                sql_Update.Update_Device(e.RowIndex + 1, struct_DeviceEnable);
-                                MessageBox.Show("启用成功！");
-                                sql_Insert.Insert_Audit(new OperationRecord() { dateTime = DateTime.Now, user = DataClass.userLevel, record = "启用设备" + (e.RowIndex + 1) });
-                                Init_DgvDevice();
-                            }
+                            struct_DeviceEnable.deviceNo = Convert.ToInt32(dgvDevice.CurrentRow.Cells[0].Value);
+                            struct_DeviceEnable.name = dgvDevice.CurrentRow.Cells[1].Value.ToString();
+                            IPAddress iPAddress;
+                            IPAddress.TryParse(dgvDevice.CurrentRow.Cells[2].Value.ToString(), out iPAddress);
+                            int port = Convert.ToInt32(dgvDevice.CurrentRow.Cells[3].Value);
+                            struct_DeviceEnable.ipEndPoint = new IPEndPoint(iPAddress, port);
+                            struct_DeviceEnable.enable = Convert.ToBoolean(dgvDevice.CurrentRow.Cells[4].Value.ToString());
+                            sql_Update.Update_Device(struct_DeviceEnable.deviceNo, struct_DeviceEnable);
+                            MessageBox.Show("修改成功！");
+                            sql_Insert.Insert_Audit(new OperationRecord() { dateTime = DateTime.Now, user = DataClass.userLevel, record = "修改设备信息" + (struct_DeviceEnable.deviceNo) });
+                            Init_DgvDevice();
                         }
-                        if (!Convert.ToBoolean(dgvDevice.CurrentRow.Cells[3].Value.ToString()))
-                        {
-                            if (MessageBox.Show("确定要关闭该设备吗？","操作提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
-                            {
+                        
+                        //if (!Convert.ToBoolean(dgvDevice.CurrentRow.Cells[3].Value.ToString()))
+                        //{
+                        //    if (MessageBox.Show("确定要关闭该设备吗？","操作提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                        //    {
 
-                                struct_DeviceEnable.name = dgvDevice.CurrentRow.Cells[0].Value.ToString();
-                                IPAddress iPAddress = IPAddress.Parse(dgvDevice.CurrentRow.Cells[1].Value.ToString());
-                                int port = Convert.ToInt32(dgvDevice.CurrentRow.Cells[2].Value);
-                                struct_DeviceEnable.ipEndPoint = new IPEndPoint(iPAddress, port);
-                                struct_DeviceEnable.enable = Convert.ToBoolean(dgvDevice.CurrentRow.Cells[3].Value.ToString());
-                                //ConfigClass.SetStruct_DeviceEnables(e.RowIndex + 1, struct_DeviceEnable);
-                                sql_Update.Update_Device(e.RowIndex + 1, struct_DeviceEnable);
-                                MessageBox.Show("关闭成功！");
-                                sql_Insert.Insert_Audit(new OperationRecord() { dateTime = DateTime.Now, user = DataClass.userLevel, record = "关闭设备" + (e.RowIndex + 1) });
-                                Init_DgvDevice();
-                            }
-                        }
+                        //        struct_DeviceEnable.name = dgvDevice.CurrentRow.Cells[0].Value.ToString();
+                        //        IPAddress iPAddress = IPAddress.Parse(dgvDevice.CurrentRow.Cells[1].Value.ToString());
+                        //        int port = Convert.ToInt32(dgvDevice.CurrentRow.Cells[2].Value);
+                        //        struct_DeviceEnable.ipEndPoint = new IPEndPoint(iPAddress, port);
+                        //        struct_DeviceEnable.enable = Convert.ToBoolean(dgvDevice.CurrentRow.Cells[3].Value.ToString());
+                        //        //ConfigClass.SetStruct_DeviceEnables(e.RowIndex + 1, struct_DeviceEnable);
+                        //        sql_Update.Update_Device(e.RowIndex + 1, struct_DeviceEnable);
+                        //        MessageBox.Show("关闭成功！");
+                        //        sql_Insert.Insert_Audit(new OperationRecord() { dateTime = DateTime.Now, user = DataClass.userLevel, record = "关闭设备" + (e.RowIndex + 1) });
+                        //        Init_DgvDevice();
+                        //    }
+                        //}
                     }
                    
                 }
@@ -163,7 +163,7 @@ namespace OpticalFiber
                     if (e.ColumnIndex == 4)
                     {
                       
-                        if (MessageBox.Show("确定要修改该分区名称吗？") == DialogResult.OK)
+                        if (MessageBox.Show("确定要修改该分区名称吗？", "操作提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                         {
                             struct_prtName.deviceNo = Convert.ToInt32(dgvPartition.CurrentRow.Cells[0].Value.ToString().Split('备')[1]);
                             struct_prtName.channelNo = Convert.ToInt32(dgvPartition.CurrentRow.Cells[1].Value.ToString().Split('道')[1]);

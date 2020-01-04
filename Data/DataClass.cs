@@ -101,6 +101,7 @@ namespace OpticalFiber
 
     public struct struct_DeviceEnable
     {
+        public int deviceNo;//设备编号
         public bool enable;//是否启用
         public IPEndPoint ipEndPoint;//终结点
         public string name;//设备名称

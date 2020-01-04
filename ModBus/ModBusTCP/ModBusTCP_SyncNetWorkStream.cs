@@ -33,8 +33,14 @@ namespace OpticalFiber
                 {
                     throw new Exception();
                 }
-                string[] temp = iPEndPoint.Address.ToString().Split('.');
-                deviceNo = Convert.ToInt32(value: temp[3]);
+                DataClass.list_DeviceEnables = (new SQL_Select()).Select_DeviceEnable();
+                foreach(struct_DeviceEnable _DeviceEnable in DataClass.list_DeviceEnables)
+                {
+                    if(_DeviceEnable.ipEndPoint.ToString()== iPEndPoint.ToString())
+                    {
+                        deviceNo = _DeviceEnable.deviceNo;
+                    }
+                }
                 Start();
             }
             catch (Exception)

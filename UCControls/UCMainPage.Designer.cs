@@ -154,7 +154,7 @@
             this.grpChannel.Size = new System.Drawing.Size(259, 309);
             this.grpChannel.TabIndex = 6;
             this.grpChannel.TabStop = false;
-            this.grpChannel.Text = "分区设置";
+            this.grpChannel.Text = "通道设置";
             // 
             // cbxChannelNo
             // 

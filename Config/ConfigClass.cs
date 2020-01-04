@@ -86,32 +86,32 @@ namespace OpticalFiber
         //    ConfigurationManager.RefreshSection("AppSettings");
         //}
 
-        public static List<struct_DeviceEnable> GetStruct_DeviceEnables()
-        {
-            List<struct_DeviceEnable> struct_DeviceEnables = new List<struct_DeviceEnable>();
-            struct_DeviceEnable deviceEnable;
-            IPAddress iPAddress;
-            int port;
-            try
-            {
-                for (int i = 1; i <= 8; i++)
-                {
-                    deviceEnable.enable = Convert.ToBoolean(Convert.ToInt32(ConfigurationManager.AppSettings["device" + i + "_Enable"]));
-                    iPAddress = IPAddress.Parse(ConfigurationManager.AppSettings["device" + i + "_IP"]);
-                    port = Convert.ToInt32(ConfigurationManager.AppSettings["device" + i + "_Port"]);
-                    deviceEnable.ipEndPoint = new IPEndPoint(iPAddress, port);
-                    deviceEnable.name = Convert.ToString(ConfigurationManager.AppSettings["device" + i + "_Name"]);
-                    struct_DeviceEnables.Add(deviceEnable);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("获取设备配置文件失败！——" + ex.Message);
-            }
+        //public static List<struct_DeviceEnable> GetStruct_DeviceEnables()
+        //{
+        //    List<struct_DeviceEnable> struct_DeviceEnables = new List<struct_DeviceEnable>();
+        //    struct_DeviceEnable deviceEnable;
+        //    IPAddress iPAddress;
+        //    int port;
+        //    try
+        //    {
+        //        for (int i = 1; i <= 8; i++)
+        //        {
+        //            deviceEnable.enable = Convert.ToBoolean(Convert.ToInt32(ConfigurationManager.AppSettings["device" + i + "_Enable"]));
+        //            iPAddress = IPAddress.Parse(ConfigurationManager.AppSettings["device" + i + "_IP"]);
+        //            port = Convert.ToInt32(ConfigurationManager.AppSettings["device" + i + "_Port"]);
+        //            deviceEnable.ipEndPoint = new IPEndPoint(iPAddress, port);
+        //            deviceEnable.name = Convert.ToString(ConfigurationManager.AppSettings["device" + i + "_Name"]);
+        //            struct_DeviceEnables.Add(deviceEnable);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("获取设备配置文件失败！——" + ex.Message);
+        //    }
            
            
-            return struct_DeviceEnables;
-        }
+        //    return struct_DeviceEnables;
+        //}
 
         public static void SetStruct_DeviceEnables(int i, struct_DeviceEnable struct_DeviceEnables)
         {

@@ -187,14 +187,17 @@ namespace OpticalFiber
             }
         }
 
-        Struct_AlarmMsg struct_TempBroken=new Struct_AlarmMsg();//定温报警
-        Struct_AlarmMsg struct_TempCons=new Struct_AlarmMsg();//定温报警
-        Struct_AlarmMsg struct_TempRise=new Struct_AlarmMsg();//差温报警
 
-        Struct_AlarmMsg temp_CommFault;
+        Struct_AlarmMsg temp_CommFault;//通讯故障
         Struct_AlarmMsg temp_TempBroken;//断纤故障
         Struct_AlarmMsg temp_TempCons;//定温报警
         Struct_AlarmMsg temp_TempRise;//差温报警
+
+        Struct_AlarmMsg compareAlarmMsg;
+
+        Dictionary<int, Struct_AlarmMsg> dicBroken = new Dictionary<int, Struct_AlarmMsg>();
+        Dictionary<int, Struct_AlarmMsg> dicCons = new Dictionary<int, Struct_AlarmMsg>();
+        Dictionary<int, Struct_AlarmMsg> dicRise = new Dictionary<int, Struct_AlarmMsg>();
 
 
         List<Struct_AlarmMsg> list_AlarmCons = new List<Struct_AlarmMsg>();//一级定温报警
@@ -221,7 +224,13 @@ namespace OpticalFiber
                             temp_CommFault.ChannelNo = 0;
                             temp_CommFault.PartitionNo = 0;
                             temp_CommFault.Position = 0;
-                            temp_CommFault.Illustrate = "设备" + i;
+                            foreach (struct_DeviceEnable _DeviceEnable in DataClass.list_DeviceEnables)
+                            {
+                                if (_DeviceEnable.deviceNo == i)
+                                {
+                                    temp_CommFault.Illustrate = _DeviceEnable.name;
+                                }
+                            }
                             temp_CommFault.Relay = 0;
                             temp_CommFault.Type = "通讯恢复";
                             temp_CommFault.AlarmValue = 0;
@@ -243,7 +252,14 @@ namespace OpticalFiber
                             temp_CommFault.ChannelNo = 0;
                             temp_CommFault.PartitionNo = 0;
                             temp_CommFault.Position = 0;
-                            temp_CommFault.Illustrate = "设备" + i;
+                            foreach(struct_DeviceEnable _DeviceEnable in DataClass.list_DeviceEnables)
+                            {
+                                if (_DeviceEnable.deviceNo == i)
+                                {
+                                    temp_CommFault.Illustrate = _DeviceEnable.name;
+                                }
+                            }
+                            //temp_CommFault.Illustrate = "设备" + i;
                             temp_CommFault.Relay = 0;
                             temp_CommFault.Type = "通讯故障";
                             temp_CommFault.AlarmValue = 0;
@@ -274,13 +290,26 @@ namespace OpticalFiber
                             temp_TempBroken.Type = "断纤故障";
                             temp_TempBroken.AlarmValue = 0;
                             temp_TempBroken.Threshold = AlarmStatus.isBroken.deviceIsBrokens[i].channelIsBrokens[j].threshold;
-                            if (temp_TempBroken != struct_TempBroken)
+                            if (!dicBroken.ContainsKey((i - 1) * 8 + j))
                             {
                                 Ismute = false;
                                 list_BrokenMsg.Add(temp_TempBroken);
                                 UpdateDgvMsg();
-                                struct_TempBroken = temp_TempBroken;
+                                dicBroken.Add((i - 1) * 8 + j, temp_TempBroken);
                                 sql_Insert.Insert_Alarm(temp_TempBroken);
+                            }
+                            else
+                            {
+                                dicBroken.TryGetValue((i - 1) * 8 + j, out compareAlarmMsg);
+                                if(compareAlarmMsg!= temp_TempBroken)
+                                {
+                                    dicBroken.Remove((i - 1) * 8 + j);
+                                    Ismute = false;
+                                    list_BrokenMsg.Add(temp_TempBroken);
+                                    UpdateDgvMsg();
+                                    dicBroken.Add((i - 1) * 8 + j, temp_TempBroken);
+                                    sql_Insert.Insert_Alarm(temp_TempBroken);
+                                }
                             }
                         }
                         for (int k = 1; k <= 50; k++)
@@ -304,13 +333,26 @@ namespace OpticalFiber
                                 temp_TempCons.Type = "一级定温报警";
                                 temp_TempCons.AlarmValue = ((double)AlarmStatus.isAlarm.deviceAlarms[i].channelAlarms[j].partitionAlarms[k].maxRealValue) / 10;
                                 temp_TempCons.Threshold = ((double)AlarmStatus.isAlarm.deviceAlarms[i].channelAlarms[j].partitionAlarms[k].realThreshold) / 10;
-                                if(temp_TempCons != struct_TempCons)
+                                if (!dicCons.ContainsKey((i - 1) * 200 + (j - 1) * 50 + k))
                                 {
                                     Ismute = false;
                                     list_AlarmCons.Add(temp_TempCons);
-                                    struct_TempCons = temp_TempCons;
+                                    dicCons.Add((i - 1) * 200 + (j - 1) * 50 + k, temp_TempCons);
                                     UpdateDgvMsg();
                                     sql_Insert.Insert_Alarm(temp_TempCons);
+                                }
+                                else
+                                {
+                                    dicCons.TryGetValue((i - 1) * 200 + (j - 1) * 50 + k, out compareAlarmMsg);
+                                    if (compareAlarmMsg != temp_TempCons)
+                                    {
+                                        dicCons.Remove((i - 1) * 200 + (j - 1) * 50 + k);
+                                        Ismute = false;
+                                        list_AlarmCons.Add(temp_TempCons);
+                                        UpdateDgvMsg();
+                                        dicCons.Add((i - 1) * 200 + (j - 1) * 50 + k, temp_TempCons);
+                                        sql_Insert.Insert_Alarm(temp_TempCons);
+                                    }
                                 }
                             }
                             if (AlarmStatus.isAlarm.deviceAlarms[i].channelAlarms[j].partitionAlarms[k].isRiseAlarm)//有火警
@@ -332,13 +374,26 @@ namespace OpticalFiber
                                 temp_TempRise.Type = "差温报警";
                                 temp_TempRise.AlarmValue = ((double)AlarmStatus.isAlarm.deviceAlarms[i].channelAlarms[j].partitionAlarms[k].maxRiseValue) / 10;
                                 temp_TempRise.Threshold = ((double)AlarmStatus.isAlarm.deviceAlarms[i].channelAlarms[j].partitionAlarms[k].riseThreshold) / 10;
-                                if (struct_TempRise != temp_TempRise)
+                                if (!dicRise.ContainsKey((i - 1) * 200 + (j - 1) * 50 + k))
                                 {
                                     Ismute = false;
                                     list_AlarmRise.Add(temp_TempRise);
-                                    struct_TempRise = temp_TempRise;
+                                    dicRise.Add((i - 1) * 200 + (j - 1) * 50 + k, temp_TempRise);
                                     UpdateDgvMsg();
                                     sql_Insert.Insert_Alarm(temp_TempRise);
+                                }
+                                else
+                                {
+                                    dicRise.TryGetValue((i - 1) * 200 + (j - 1) * 50 + k, out compareAlarmMsg);
+                                    if (compareAlarmMsg != temp_TempRise)
+                                    {
+                                        dicRise.Remove((i - 1) * 200 + (j - 1) * 50 + k);
+                                        Ismute = false;
+                                        list_AlarmRise.Add(temp_TempRise);
+                                        UpdateDgvMsg();
+                                        dicRise.Add((i - 1) * 200 + (j - 1) * 50 + k, temp_TempRise);
+                                        sql_Insert.Insert_Alarm(temp_TempRise);
+                                    }
                                 }
                             }
                         }
@@ -503,15 +558,33 @@ namespace OpticalFiber
                 Ismute = false;
                 timerAlarm.Stop();
                 Thread.Sleep(1000);
+                Array.Clear(commFault, 0, commFault.Length);
+                Array.Clear(DataClass.list_TcpCommFault, 0, DataClass.list_TcpCommFault.Length);
                 list_AlarmRise.Clear();
                 list_AlarmCons.Clear();
                 list_CommFault.Clear();
                 list_BrokenMsg.Clear();
 
-                struct_TempBroken = new Struct_AlarmMsg();//断纤故障
-                struct_TempCons = new Struct_AlarmMsg();//定温报警
-                struct_TempRise = new Struct_AlarmMsg();//差温报警
+                dicBroken.Clear();
+                dicCons.Clear();
+                dicRise.Clear();
 
+                if (workTread_TCP != null)
+                {
+                    DataClass.IsRunning = false;
+                    DataClass.cancellationTokenSource.Cancel();
+                    Thread.Sleep(500);
+                    workTread_TCP = null;
+                }
+                Thread.Sleep(500);
+                if (workTread_TCP == null)
+                {
+                    DataClass.cancellationTokenSource = new CancellationTokenSource();
+                    workTread_TCP = new WorkTread_TCP(1);
+                    DataClass.list_PrtName = sql_Select.Select_PrtName();
+                    Thread.Sleep(500);
+                    InitTreeView();
+                }
                 InitTreeView();
                 dgvAlarmMsg.Rows.Clear();
                 Thread.Sleep(500);

@@ -124,7 +124,14 @@ namespace OpticalFiber
                 for(int i=0;i< struct_tvw.struct_TvwDevices.Length; i++)
                 {
                     treeNodeDevice = new TreeNode();//设备层
-                    treeNodeDevice.Text = "设备" + struct_tvw.struct_TvwDevices[i].deviceNo;
+                    foreach(struct_DeviceEnable _DeviceEnable in DataClass.list_DeviceEnables)
+                    {
+                        if(_DeviceEnable.deviceNo == struct_tvw.struct_TvwDevices[i].deviceNo)
+                        {
+                            treeNodeDevice.Text = _DeviceEnable.name;
+                        }
+                    }
+                    //treeNodeDevice.Text = "设备" + struct_tvw.struct_TvwDevices[i].deviceNo;
                     treeNodeDevice.ImageIndex = 0;
                     for (int j=1;j < struct_tvw.struct_TvwDevices[i].struct_TvwChannels.Length; j++)
                     {

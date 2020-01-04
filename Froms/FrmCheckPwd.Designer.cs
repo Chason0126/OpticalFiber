@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxPwd = new System.Windows.Forms.TextBox();
             this.btnChangeOperatorPwd = new System.Windows.Forms.Button();
@@ -49,17 +49,6 @@
             this.pnlHeader.TabIndex = 0;
             this.pnlHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseDown);
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTitle.Location = new System.Drawing.Point(124, 15);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(200, 16);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "请输入操作员或管理员密码";
-            this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitle_MouseDown);
-            // 
             // btnQuit
             // 
             this.btnQuit.BackgroundImage = global::OpticalFiber.Properties.Resources.Frm_Close;
@@ -76,6 +65,17 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTitle.Location = new System.Drawing.Point(124, 15);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(200, 16);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "请输入操作员或管理员密码";
+            this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitle_MouseDown);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -91,6 +91,7 @@
             this.tbxPwd.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbxPwd.Location = new System.Drawing.Point(158, 114);
             this.tbxPwd.Name = "tbxPwd";
+            this.tbxPwd.PasswordChar = '*';
             this.tbxPwd.ShortcutsEnabled = false;
             this.tbxPwd.Size = new System.Drawing.Size(149, 23);
             this.tbxPwd.TabIndex = 2;
@@ -108,6 +109,7 @@
             // 
             // FrmCheckPwd
             // 
+            this.AcceptButton = this.btnChangeOperatorPwd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 235);

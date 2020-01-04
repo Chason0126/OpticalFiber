@@ -46,7 +46,14 @@ namespace OpticalFiber
                 }
                 for(int i = 1; i <= channelNo; i++)
                 {
-                    title = "设备" + struct_tvwMsg.deviceNo + "—通道" + i;
+                    foreach (struct_DeviceEnable _DeviceEnable in DataClass.list_DeviceEnables)
+                    {
+                        if (_DeviceEnable.deviceNo == struct_tvwMsg.deviceNo)
+                        {
+                            title = _DeviceEnable.name + "—通道" + i;
+                        }
+                    }
+                    //title = "设备" + struct_tvwMsg.deviceNo + "—通道" + i;
                     UCChart ucChart = new UCChart(struct_tvwMsg.deviceNo, i, 0, title);
                     ucChart.Dock = DockStyle.Fill;
                     tlp.Controls.Add(ucChart);
@@ -54,7 +61,14 @@ namespace OpticalFiber
             }
             else if(struct_tvwMsg.partitionNo == 0)//一个通道
             {
-                title = "设备" + struct_tvwMsg.deviceNo + "—通道" + struct_tvwMsg.channelNo;
+                foreach (struct_DeviceEnable _DeviceEnable in DataClass.list_DeviceEnables)
+                {
+                    if (_DeviceEnable.deviceNo == struct_tvwMsg.deviceNo)
+                    {
+                        title = _DeviceEnable.name + "—通道" + struct_tvwMsg.channelNo;
+                    }
+                }
+                //title = "设备" + struct_tvwMsg.deviceNo + "—通道" + struct_tvwMsg.channelNo;
                 tlp.RowCount = 1;
                 tlp.ColumnCount = 1;
                 UCChart ucChart = new UCChart(struct_tvwMsg.deviceNo, struct_tvwMsg.channelNo, 0, title);
@@ -63,7 +77,14 @@ namespace OpticalFiber
             }
             else//这是一个分区
             {
-                title = "设备" + struct_tvwMsg.deviceNo + "—通道" + struct_tvwMsg.channelNo + "—" + struct_tvwMsg.treeNodeName;
+                foreach (struct_DeviceEnable _DeviceEnable in DataClass.list_DeviceEnables)
+                {
+                    if (_DeviceEnable.deviceNo == struct_tvwMsg.deviceNo)
+                    {
+                        title = _DeviceEnable.name + "—通道" + struct_tvwMsg.channelNo + "—" + struct_tvwMsg.treeNodeName;
+                    }
+                }
+                //title = "设备" + struct_tvwMsg.deviceNo + "—通道" + struct_tvwMsg.channelNo + "—" + struct_tvwMsg.treeNodeName;
                 tlp.RowCount = 1;
                 tlp.ColumnCount = 1;
                 UCChart ucChart = new UCChart(struct_tvwMsg.deviceNo, struct_tvwMsg.channelNo, struct_tvwMsg.partitionNo, title);

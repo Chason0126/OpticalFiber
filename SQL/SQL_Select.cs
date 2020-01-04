@@ -117,6 +117,7 @@ namespace OpticalFiber
                     port = Convert.ToInt32(Convert.ToString(mySqlDataReader.GetValue(3)));
                     struct_DeviceEnable.ipEndPoint = new IPEndPoint(iPAddress, port);
                     struct_DeviceEnable.name = Convert.ToString(Convert.ToString(mySqlDataReader.GetValue(1)));
+                    struct_DeviceEnable.deviceNo = Convert.ToInt32(Convert.ToString(mySqlDataReader.GetValue(0)));
                     struct_DeviceEnables.Add(struct_DeviceEnable);
                 }
             }
