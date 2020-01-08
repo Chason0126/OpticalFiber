@@ -126,7 +126,7 @@ namespace OpticalFiber
             }
             for (int i=startPosition;i<endPosition; i++)
             {
-                if (IsBroken())//断纤 
+                if (IsBroken()|| DataClass.list_TcpCommFault[deviceNo])//断纤 
                 {
                     avgTempTemper = 0;
                     realTempTemper = 0;
@@ -153,7 +153,7 @@ namespace OpticalFiber
                 }
             }
 
-            if (IsBroken())
+            if (IsBroken() || DataClass.list_TcpCommFault[deviceNo])
             {
                 series_AvgTemper.Points.AddXY(endPosition, 0);
                 series_RealTemper.Points.AddXY(endPosition, 0);

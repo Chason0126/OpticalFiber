@@ -106,5 +106,7 @@ namespace OpticalFiber
         {
             Frm_Move();
         }
+
+      
     }
 }

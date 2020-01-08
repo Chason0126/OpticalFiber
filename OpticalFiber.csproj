@@ -115,10 +115,10 @@
   <ItemGroup>
     <Compile Include="Data\AlarmStatus.cs" />
     <Compile Include="Data\Excel.cs" />
-    <Compile Include="FrmInitDB.cs">
+    <Compile Include="Froms\FrmInitDB.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInitDB.Designer.cs">
+    <Compile Include="Froms\FrmInitDB.Designer.cs">
       <DependentUpon>FrmInitDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Froms\FrmAuthorize.cs">
@@ -238,7 +238,7 @@
     <Compile Include="UCControls\UCTreeView.Designer.cs">
       <DependentUpon>UCTreeView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmInitDB.resx">
+    <EmbeddedResource Include="Froms\FrmInitDB.resx">
       <DependentUpon>FrmInitDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Froms\FrmAuthorize.resx">
