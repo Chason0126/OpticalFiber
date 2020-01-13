@@ -329,5 +329,18 @@ namespace OpticalFiber
                 chart1.ChartAreas[0].AxisY.ScaleView.ZoomReset(2);
             }
         }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            try
+            {
+                base.OnPaint(e);
+            }
+            catch (Exception)
+            {
+
+            }
+          
+        }
     }
 }

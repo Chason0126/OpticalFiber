@@ -551,10 +551,13 @@ namespace OpticalFiber
            
         }
 
+        //FrmReset frmReset;
         private void Reset()
         {
             try
             {
+                //frmReset = new FrmReset();
+                //frmReset.Show();
                 Ismute = false;
                 timerAlarm.Stop();
                 Thread.Sleep(1000);
@@ -564,6 +567,7 @@ namespace OpticalFiber
                 list_AlarmCons.Clear();
                 list_CommFault.Clear();
                 list_BrokenMsg.Clear();
+                AlarmStatus.Reset();
 
                 dicBroken.Clear();
                 dicCons.Clear();
@@ -589,16 +593,21 @@ namespace OpticalFiber
                 dgvAlarmMsg.Rows.Clear();
                 Thread.Sleep(500);
                 timerAlarm.Start();
+                //frmReset.Close();
                 MessageBox.Show("复位成功！");
                 sql_Insert.Insert_Audit(new OperationRecord() { dateTime = DateTime.Now, user = DataClass.userLevel, record = "系统复位" });
             }
             catch (Exception ex)
             {
-
                 DataClass.ShowErrMsg("复位失败！" + ex.Message);
+            }
+            finally
+            {
+                
             }
         }
         
+      
         private void UpdateDgvMsg()
         {
             try

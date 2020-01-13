@@ -32,7 +32,6 @@ namespace OpticalFiber
                     channelIsBrokens = new ChannelIsBroken[5];
                     deviceIsBrokens[i].channelIsBrokens = channelIsBrokens;
                 }
-
             }
            
         }
@@ -69,8 +68,6 @@ namespace OpticalFiber
             public IsAlarm()
             {
                 PartitionAlarm[] partitionAlarms;
-               
-              
                 for(int i = 0; i < 9; i++)
                 {
                     channelAlarms = new ChannelAlarm[5];
@@ -178,6 +175,22 @@ namespace OpticalFiber
             catch (Exception ex)
             {
                 DataClass.ShowErrMsg("报警信息巡检状态异常！——"+ex.Message);
+            }
+        }
+
+        public static void Reset()
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                for (int j = 1; j <= 4; j++)
+                {
+                    DataClass.list_DeviceChannelParam[i].struct_DeviceChannelParam.struct_ChannelParams[j].isBroken = 0;//通道断纤故障
+                    for (int k = 1; k <= 50; k++)
+                    {
+                        DataClass.list_DevicePartition[i].struct_devicePartition.struct_ChannelPartitions[j].struct_Partitions[k].fireAlarmStatus = 0;//分区火警
+                        DataClass.list_DevicePartition[i].struct_devicePartition.struct_ChannelPartitions[j].struct_Partitions[k].riseAlarmStaus = 0;//分区升警
+                    }
+                }
             }
         }
     }

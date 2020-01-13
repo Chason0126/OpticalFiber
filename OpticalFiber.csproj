@@ -115,6 +115,12 @@
   <ItemGroup>
     <Compile Include="Data\AlarmStatus.cs" />
     <Compile Include="Data\Excel.cs" />
+    <Compile Include="FrmReset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReset.Designer.cs">
+      <DependentUpon>FrmReset.cs</DependentUpon>
+    </Compile>
     <Compile Include="Froms\FrmInitDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     <Compile Include="UCControls\UCTreeView.Designer.cs">
       <DependentUpon>UCTreeView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmReset.resx">
+      <DependentUpon>FrmReset.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Froms\FrmInitDB.resx">
       <DependentUpon>FrmInitDB.cs</DependentUpon>
     </EmbeddedResource>
@@ -402,6 +411,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\userNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
