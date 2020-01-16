@@ -106,6 +106,7 @@
             // 
             // btnExport
             // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExport.BackColor = System.Drawing.Color.Red;
             this.btnExport.FlatAppearance.BorderSize = 0;
             this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
@@ -122,13 +123,14 @@
             // 
             // btnQuary
             // 
+            this.btnQuary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnQuary.FlatAppearance.BorderSize = 0;
             this.btnQuary.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
             this.btnQuary.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.btnQuary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuary.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnQuary.Location = new System.Drawing.Point(1328, 28);
+            this.btnQuary.Location = new System.Drawing.Point(1425, 34);
             this.btnQuary.Name = "btnQuary";
             this.btnQuary.Size = new System.Drawing.Size(95, 30);
             this.btnQuary.TabIndex = 11;
@@ -138,27 +140,30 @@
             // 
             // dtpEnd
             // 
+            this.dtpEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpEnd.CalendarFont = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dtpEnd.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dtpEnd.Location = new System.Drawing.Point(1115, 32);
+            this.dtpEnd.Location = new System.Drawing.Point(1243, 36);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(135, 23);
             this.dtpEnd.TabIndex = 9;
             // 
             // dtpStart
             // 
+            this.dtpStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpStart.CalendarFont = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dtpStart.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dtpStart.Location = new System.Drawing.Point(855, 31);
+            this.dtpStart.Location = new System.Drawing.Point(983, 37);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(135, 23);
             this.dtpStart.TabIndex = 10;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(553, 33);
+            this.label2.Location = new System.Drawing.Point(681, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 5;
@@ -166,9 +171,10 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(1020, 33);
+            this.label4.Location = new System.Drawing.Point(1148, 37);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 6;
@@ -176,9 +182,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(759, 32);
+            this.label3.Location = new System.Drawing.Point(887, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 7;
@@ -186,6 +193,7 @@
             // 
             // cbxAlarmType
             // 
+            this.cbxAlarmType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxAlarmType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAlarmType.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbxAlarmType.FormattingEnabled = true;
@@ -194,7 +202,7 @@
             "火灾报警",
             "故障报警",
             "通讯报警"});
-            this.cbxAlarmType.Location = new System.Drawing.Point(634, 32);
+            this.cbxAlarmType.Location = new System.Drawing.Point(762, 38);
             this.cbxAlarmType.Name = "cbxAlarmType";
             this.cbxAlarmType.Size = new System.Drawing.Size(96, 22);
             this.cbxAlarmType.TabIndex = 8;
@@ -203,7 +211,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("黑体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(25, 29);
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(11, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 24);
             this.label1.TabIndex = 0;

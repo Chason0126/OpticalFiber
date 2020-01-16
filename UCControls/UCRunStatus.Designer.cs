@@ -42,8 +42,8 @@
             this.lblScanChannel_4 = new System.Windows.Forms.Label();
             this.lblDetectionStatus_4 = new System.Windows.Forms.Label();
             this.pnlAlarmMsg = new System.Windows.Forms.Panel();
-            this.lblAlarmMsg = new System.Windows.Forms.Label();
             this.lblDevice = new System.Windows.Forms.Label();
+            this.lblAlarmMsg = new System.Windows.Forms.Label();
             this.pnlAlarmMsg.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,16 +163,6 @@
             this.pnlAlarmMsg.Size = new System.Drawing.Size(210, 143);
             this.pnlAlarmMsg.TabIndex = 1;
             // 
-            // lblAlarmMsg
-            // 
-            this.lblAlarmMsg.AutoSize = true;
-            this.lblAlarmMsg.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblAlarmMsg.Location = new System.Drawing.Point(57, 54);
-            this.lblAlarmMsg.Name = "lblAlarmMsg";
-            this.lblAlarmMsg.Size = new System.Drawing.Size(89, 19);
-            this.lblAlarmMsg.TabIndex = 0;
-            this.lblAlarmMsg.Text = "报警信息";
-            // 
             // lblDevice
             // 
             this.lblDevice.AutoSize = true;
@@ -182,6 +172,17 @@
             this.lblDevice.Size = new System.Drawing.Size(49, 14);
             this.lblDevice.TabIndex = 1;
             this.lblDevice.Text = "设备：";
+            // 
+            // lblAlarmMsg
+            // 
+            this.lblAlarmMsg.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAlarmMsg.AutoSize = true;
+            this.lblAlarmMsg.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblAlarmMsg.Location = new System.Drawing.Point(57, 54);
+            this.lblAlarmMsg.Name = "lblAlarmMsg";
+            this.lblAlarmMsg.Size = new System.Drawing.Size(89, 19);
+            this.lblAlarmMsg.TabIndex = 0;
+            this.lblAlarmMsg.Text = "报警信息";
             // 
             // UCRunStatus
             // 

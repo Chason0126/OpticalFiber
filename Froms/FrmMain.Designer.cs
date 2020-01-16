@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.spcMain = new System.Windows.Forms.SplitContainer();
             this.pnlMenu = new System.Windows.Forms.Panel();
@@ -73,8 +73,6 @@
             this.tlpRunStatus = new System.Windows.Forms.TableLayoutPanel();
             this.tabAlarmMsg = new System.Windows.Forms.TabPage();
             this.dgvAlarmMsg = new System.Windows.Forms.DataGridView();
-            this.timerAlarm = new System.Windows.Forms.Timer(this.components);
-            this.timerVoice = new System.Windows.Forms.Timer(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +84,8 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerAlarm = new System.Windows.Forms.Timer(this.components);
+            this.timerVoice = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.spcMain)).BeginInit();
             this.spcMain.Panel1.SuspendLayout();
             this.spcMain.Panel2.SuspendLayout();
@@ -136,7 +136,7 @@
             // spcMain.Panel2
             // 
             this.spcMain.Panel2.Controls.Add(this.spcTree_Spline);
-            this.spcMain.Size = new System.Drawing.Size(1920, 1080);
+            this.spcMain.Size = new System.Drawing.Size(1366, 768);
             this.spcMain.SplitterDistance = 98;
             this.spcMain.SplitterWidth = 1;
             this.spcMain.TabIndex = 4;
@@ -153,7 +153,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 65);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(1920, 33);
+            this.pnlMenu.Size = new System.Drawing.Size(1366, 33);
             this.pnlMenu.TabIndex = 3;
             // 
             // pbxUser
@@ -222,35 +222,35 @@
             // 设备管理ToolStripMenuItem
             // 
             this.设备管理ToolStripMenuItem.Name = "设备管理ToolStripMenuItem";
-            this.设备管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
+            this.设备管理ToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.设备管理ToolStripMenuItem.Text = "设备管理";
             this.设备管理ToolStripMenuItem.Click += new System.EventHandler(this.设备管理ToolStripMenuItem_Click);
             // 
             // 主页设置ToolStripMenuItem
             // 
             this.主页设置ToolStripMenuItem.Name = "主页设置ToolStripMenuItem";
-            this.主页设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
+            this.主页设置ToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.主页设置ToolStripMenuItem.Text = "主页设置";
             this.主页设置ToolStripMenuItem.Click += new System.EventHandler(this.主页设置ToolStripMenuItem_Click);
             // 
             // 切换用户ToolStripMenuItem
             // 
             this.切换用户ToolStripMenuItem.Name = "切换用户ToolStripMenuItem";
-            this.切换用户ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
+            this.切换用户ToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.切换用户ToolStripMenuItem.Text = "切换用户";
             this.切换用户ToolStripMenuItem.Click += new System.EventHandler(this.切换用户ToolStripMenuItem_Click);
             // 
             // 密码管理ToolStripMenuItem
             // 
             this.密码管理ToolStripMenuItem.Name = "密码管理ToolStripMenuItem";
-            this.密码管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
+            this.密码管理ToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.密码管理ToolStripMenuItem.Text = "密码管理";
             this.密码管理ToolStripMenuItem.Click += new System.EventHandler(this.密码管理ToolStripMenuItem_Click);
             // 
             // 操作记录ToolStripMenuItem
             // 
             this.操作记录ToolStripMenuItem.Name = "操作记录ToolStripMenuItem";
-            this.操作记录ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
+            this.操作记录ToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.操作记录ToolStripMenuItem.Text = "操作记录";
             this.操作记录ToolStripMenuItem.Click += new System.EventHandler(this.操作记录ToolStripMenuItem_Click);
             // 
@@ -299,7 +299,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1920, 65);
+            this.pnlHeader.Size = new System.Drawing.Size(1366, 65);
             this.pnlHeader.TabIndex = 1;
             // 
             // tlpStatus
@@ -308,12 +308,12 @@
             this.tlpStatus.ColumnCount = 3;
             this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tlpStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tlpStatus.Controls.Add(this.pbxFireAlarm, 0, 0);
             this.tlpStatus.Controls.Add(this.pbxFaultAlarm, 0, 0);
             this.tlpStatus.Controls.Add(this.pbxRunStatus, 0, 0);
             this.tlpStatus.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tlpStatus.Location = new System.Drawing.Point(1720, 0);
+            this.tlpStatus.Location = new System.Drawing.Point(1166, 0);
             this.tlpStatus.Name = "tlpStatus";
             this.tlpStatus.RowCount = 1;
             this.tlpStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -328,7 +328,7 @@
             this.pbxFireAlarm.Location = new System.Drawing.Point(133, 1);
             this.pbxFireAlarm.Margin = new System.Windows.Forms.Padding(0);
             this.pbxFireAlarm.Name = "pbxFireAlarm";
-            this.pbxFireAlarm.Size = new System.Drawing.Size(73, 63);
+            this.pbxFireAlarm.Size = new System.Drawing.Size(75, 63);
             this.pbxFireAlarm.TabIndex = 2;
             this.pbxFireAlarm.TabStop = false;
             // 
@@ -381,6 +381,7 @@
             // spcTree_Spline
             // 
             this.spcTree_Spline.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spcTree_Spline.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.spcTree_Spline.Location = new System.Drawing.Point(0, 0);
             this.spcTree_Spline.Margin = new System.Windows.Forms.Padding(0);
             this.spcTree_Spline.Name = "spcTree_Spline";
@@ -394,7 +395,7 @@
             // spcTree_Spline.Panel2
             // 
             this.spcTree_Spline.Panel2.Controls.Add(this.spcLine_Msg);
-            this.spcTree_Spline.Size = new System.Drawing.Size(1920, 981);
+            this.spcTree_Spline.Size = new System.Drawing.Size(1366, 669);
             this.spcTree_Spline.SplitterDistance = 200;
             this.spcTree_Spline.SplitterWidth = 1;
             this.spcTree_Spline.TabIndex = 0;
@@ -481,6 +482,7 @@
             // spcLine_Msg
             // 
             this.spcLine_Msg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spcLine_Msg.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.spcLine_Msg.Location = new System.Drawing.Point(0, 0);
             this.spcLine_Msg.Margin = new System.Windows.Forms.Padding(0);
             this.spcLine_Msg.Name = "spcLine_Msg";
@@ -494,8 +496,8 @@
             // 
             this.spcLine_Msg.Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.spcLine_Msg.Panel2.Controls.Add(this.tabMsg);
-            this.spcLine_Msg.Size = new System.Drawing.Size(1719, 981);
-            this.spcLine_Msg.SplitterDistance = 800;
+            this.spcLine_Msg.Size = new System.Drawing.Size(1165, 669);
+            this.spcLine_Msg.SplitterDistance = 488;
             this.spcLine_Msg.SplitterWidth = 1;
             this.spcLine_Msg.TabIndex = 1;
             // 
@@ -506,7 +508,7 @@
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1719, 800);
+            this.pnlMain.Size = new System.Drawing.Size(1165, 488);
             this.pnlMain.TabIndex = 0;
             // 
             // tabMsg
@@ -519,7 +521,7 @@
             this.tabMsg.Margin = new System.Windows.Forms.Padding(0);
             this.tabMsg.Name = "tabMsg";
             this.tabMsg.SelectedIndex = 0;
-            this.tabMsg.Size = new System.Drawing.Size(1719, 180);
+            this.tabMsg.Size = new System.Drawing.Size(1165, 180);
             this.tabMsg.TabIndex = 0;
             // 
             // tabRunMsg
@@ -527,7 +529,7 @@
             this.tabRunMsg.Controls.Add(this.tlpRunStatus);
             this.tabRunMsg.Location = new System.Drawing.Point(4, 24);
             this.tabRunMsg.Name = "tabRunMsg";
-            this.tabRunMsg.Size = new System.Drawing.Size(1711, 152);
+            this.tabRunMsg.Size = new System.Drawing.Size(1157, 152);
             this.tabRunMsg.TabIndex = 0;
             this.tabRunMsg.Text = "运行状态";
             this.tabRunMsg.UseVisualStyleBackColor = true;
@@ -550,7 +552,7 @@
             this.tlpRunStatus.Name = "tlpRunStatus";
             this.tlpRunStatus.RowCount = 1;
             this.tlpRunStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpRunStatus.Size = new System.Drawing.Size(1711, 152);
+            this.tlpRunStatus.Size = new System.Drawing.Size(1157, 152);
             this.tlpRunStatus.TabIndex = 0;
             // 
             // tabAlarmMsg
@@ -568,18 +570,18 @@
             this.dgvAlarmMsg.AllowUserToAddRows = false;
             this.dgvAlarmMsg.AllowUserToDeleteRows = false;
             this.dgvAlarmMsg.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            this.dgvAlarmMsg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvAlarmMsg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvAlarmMsg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAlarmMsg.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlarmMsg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlarmMsg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvAlarmMsg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlarmMsg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -593,34 +595,24 @@
             this.Column9,
             this.Column10,
             this.Column11});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlarmMsg.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlarmMsg.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvAlarmMsg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAlarmMsg.Location = new System.Drawing.Point(0, 0);
             this.dgvAlarmMsg.Margin = new System.Windows.Forms.Padding(0);
             this.dgvAlarmMsg.Name = "dgvAlarmMsg";
             this.dgvAlarmMsg.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvAlarmMsg.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvAlarmMsg.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvAlarmMsg.RowTemplate.Height = 23;
             this.dgvAlarmMsg.Size = new System.Drawing.Size(1711, 152);
             this.dgvAlarmMsg.TabIndex = 0;
-            // 
-            // timerAlarm
-            // 
-            this.timerAlarm.Interval = 500;
-            this.timerAlarm.Tick += new System.EventHandler(this.timerAlarm_Tick);
-            // 
-            // timerVoice
-            // 
-            this.timerVoice.Interval = 1000;
-            this.timerVoice.Tick += new System.EventHandler(this.timerVoice_Tick);
             // 
             // Column1
             // 
@@ -678,13 +670,23 @@
             this.Column11.HeaderText = "限定值";
             this.Column11.Name = "Column11";
             // 
+            // timerAlarm
+            // 
+            this.timerAlarm.Interval = 500;
+            this.timerAlarm.Tick += new System.EventHandler(this.timerAlarm_Tick);
+            // 
+            // timerVoice
+            // 
+            this.timerVoice.Interval = 1000;
+            this.timerVoice.Tick += new System.EventHandler(this.timerVoice_Tick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::OpticalFiber.Properties.Resources.backGround3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.spcMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

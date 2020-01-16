@@ -36,6 +36,7 @@ namespace OpticalFiber
             try
             {
                 InitializeComponent();
+                this.WindowState = FormWindowState.Maximized;
                 DataClass.list_PrtName = sql_Select.Select_PrtName();
                 timerMain.Start();
                 timerAlarm.Start();

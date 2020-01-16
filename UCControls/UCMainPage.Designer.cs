@@ -57,7 +57,7 @@
             // spcPagePic
             // 
             this.spcPagePic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.spcPagePic.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.spcPagePic.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.spcPagePic.IsSplitterFixed = true;
             this.spcPagePic.Location = new System.Drawing.Point(0, 0);
             this.spcPagePic.Margin = new System.Windows.Forms.Padding(0);
@@ -74,7 +74,7 @@
             this.spcPagePic.Panel2.Controls.Add(this.grpPic);
             this.spcPagePic.Panel2.Controls.Add(this.grpChannel);
             this.spcPagePic.Panel2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.spcPagePic.Size = new System.Drawing.Size(1719, 800);
+            this.spcPagePic.Size = new System.Drawing.Size(1719, 500);
             this.spcPagePic.SplitterDistance = 1400;
             this.spcPagePic.TabIndex = 0;
             // 
@@ -85,16 +85,18 @@
             this.pnlMainPage.Location = new System.Drawing.Point(0, 0);
             this.pnlMainPage.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMainPage.Name = "pnlMainPage";
-            this.pnlMainPage.Size = new System.Drawing.Size(1400, 800);
+            this.pnlMainPage.Size = new System.Drawing.Size(1400, 500);
             this.pnlMainPage.TabIndex = 0;
             // 
             // grpPrjName
             // 
+            this.grpPrjName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.grpPrjName.Controls.Add(this.tbxPrjName);
             this.grpPrjName.Controls.Add(this.btnChangePrjName);
-            this.grpPrjName.Location = new System.Drawing.Point(33, 601);
+            this.grpPrjName.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.grpPrjName.Location = new System.Drawing.Point(33, 363);
             this.grpPrjName.Name = "grpPrjName";
-            this.grpPrjName.Size = new System.Drawing.Size(259, 183);
+            this.grpPrjName.Size = new System.Drawing.Size(259, 133);
             this.grpPrjName.TabIndex = 7;
             this.grpPrjName.TabStop = false;
             this.grpPrjName.Text = "项目名称设置";
@@ -102,7 +104,7 @@
             // tbxPrjName
             // 
             this.tbxPrjName.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbxPrjName.Location = new System.Drawing.Point(20, 58);
+            this.tbxPrjName.Location = new System.Drawing.Point(20, 35);
             this.tbxPrjName.Name = "tbxPrjName";
             this.tbxPrjName.Size = new System.Drawing.Size(221, 23);
             this.tbxPrjName.TabIndex = 1;
@@ -110,7 +112,7 @@
             // 
             // btnChangePrjName
             // 
-            this.btnChangePrjName.Location = new System.Drawing.Point(78, 121);
+            this.btnChangePrjName.Location = new System.Drawing.Point(78, 83);
             this.btnChangePrjName.Name = "btnChangePrjName";
             this.btnChangePrjName.Size = new System.Drawing.Size(117, 32);
             this.btnChangePrjName.TabIndex = 0;
@@ -120,19 +122,21 @@
             // 
             // grpPic
             // 
+            this.grpPic.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grpPic.Controls.Add(this.btnChangePic);
-            this.grpPic.Location = new System.Drawing.Point(33, 397);
+            this.grpPic.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.grpPic.Location = new System.Drawing.Point(33, 281);
             this.grpPic.Name = "grpPic";
-            this.grpPic.Size = new System.Drawing.Size(259, 161);
+            this.grpPic.Size = new System.Drawing.Size(259, 68);
             this.grpPic.TabIndex = 7;
             this.grpPic.TabStop = false;
             this.grpPic.Text = "主页图片设置";
             // 
             // btnChangePic
             // 
-            this.btnChangePic.Location = new System.Drawing.Point(51, 69);
+            this.btnChangePic.Location = new System.Drawing.Point(78, 22);
             this.btnChangePic.Name = "btnChangePic";
-            this.btnChangePic.Size = new System.Drawing.Size(156, 41);
+            this.btnChangePic.Size = new System.Drawing.Size(114, 32);
             this.btnChangePic.TabIndex = 0;
             this.btnChangePic.Text = "更换图片";
             this.btnChangePic.UseVisualStyleBackColor = true;
@@ -140,6 +144,7 @@
             // 
             // grpChannel
             // 
+            this.grpChannel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grpChannel.Controls.Add(this.cbxChannelNo);
             this.grpChannel.Controls.Add(this.btnSave);
             this.grpChannel.Controls.Add(this.tbxChannelName);
@@ -149,9 +154,10 @@
             this.grpChannel.Controls.Add(this.label2);
             this.grpChannel.Controls.Add(this.label3);
             this.grpChannel.Controls.Add(this.cbxDeviceNo);
-            this.grpChannel.Location = new System.Drawing.Point(33, 32);
+            this.grpChannel.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.grpChannel.Location = new System.Drawing.Point(33, 19);
             this.grpChannel.Name = "grpChannel";
-            this.grpChannel.Size = new System.Drawing.Size(259, 309);
+            this.grpChannel.Size = new System.Drawing.Size(259, 246);
             this.grpChannel.TabIndex = 6;
             this.grpChannel.TabStop = false;
             this.grpChannel.Text = "通道设置";
@@ -174,8 +180,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(95, 254);
+            this.btnSave.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(95, 201);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 30);
             this.btnSave.TabIndex = 4;
@@ -194,8 +200,8 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(163, 187);
+            this.btnDelete.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDelete.Location = new System.Drawing.Point(166, 165);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 30);
             this.btnDelete.TabIndex = 4;
@@ -205,8 +211,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(32, 187);
+            this.btnAdd.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAdd.Location = new System.Drawing.Point(31, 165);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 30);
             this.btnAdd.TabIndex = 4;
@@ -217,30 +223,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(17, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 16);
+            this.label1.Size = new System.Drawing.Size(77, 14);
             this.label1.TabIndex = 1;
             this.label1.Text = "设备编号：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(17, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 16);
+            this.label2.Size = new System.Drawing.Size(77, 14);
             this.label2.TabIndex = 2;
             this.label2.Text = "通道编号：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(17, 136);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.Size = new System.Drawing.Size(77, 14);
             this.label3.TabIndex = 2;
             this.label3.Text = "通道名称：";
             // 
@@ -272,7 +278,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UCMainPage";
-            this.Size = new System.Drawing.Size(1719, 800);
+            this.Size = new System.Drawing.Size(1719, 500);
             this.spcPagePic.Panel1.ResumeLayout(false);
             this.spcPagePic.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcPagePic)).EndInit();
